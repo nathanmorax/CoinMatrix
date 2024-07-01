@@ -30,9 +30,8 @@ Consumo de Servicio(Aync Await)
 - fetchData(): Realiza una solicitud de red utilizando Async Await, los datos se decodifican y se actualiza tanto la propiedad cryptoData del ViewModel como la base de datos de Core Data.
 
 
-![iPhone 15 Plus](https://github.com/nathanmorax/CoinMatrix/assets/104747322/8229f11e-a857-4c81-8335-475d39d32969)
+<img src="https://github.com/nathanmorax/CoinMatrix/assets/104747322/8229f11e-a857-4c81-8335-475d39d32969.png" width="300"> <img src="https://github.com/nathanmorax/CoinMatrix/assets/104747322/e901a741-e4cc-4f2d-96c2-a53a70e53427.png" width="300">
 
-![iPhone SE 3](https://github.com/nathanmorax/CoinMatrix/assets/104747322/e901a741-e4cc-4f2d-96c2-a53a70e53427)
 
 
 

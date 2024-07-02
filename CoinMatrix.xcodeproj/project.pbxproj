@@ -43,7 +43,6 @@
 			membershipExceptions = (
 				Color.swift,
 				Formatter.swift,
-				RandomColor.swift,
 			);
 			target = 7C70458D2C2F9533008C5E28 /* CoinMatrix */;
 		};

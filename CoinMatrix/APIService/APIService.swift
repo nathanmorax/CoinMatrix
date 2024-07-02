@@ -7,54 +7,57 @@
 
 import UIKit
 
-class APIService {
-    
+struct APIService {
     static let shared = APIService()
     
-    
-    /*func fecthData() {
-     guard let url = URL(string:  "https://api.coincap.io/v2/assets") else { return }
-     //https://v1.formula-1.api-sports.io/races?season=2024&competition=2
-     //"https://v1.formula-1.api-sports.io/races?competition=1&season=2019&type=1st Practice"
-     var request = URLRequest(url: url)
-     
-     request.setValue("ea873a39-9d7b-49fc-bb55-7d263f8d7e5d", forHTTPHeaderField: "Authorization")
-     
-     URLSession.shared.dataTask(with: request) { (data, response, error) in
-     guard let data, error == nil else {
-     //completion(nil, error)
-     return
-     }
-     do {
-     print("data:: ", String(decoding: data, as: UTF8.self))
-     let objects = try JSONDecoder().decode(CryptoResponse.self, from: data)
-     //completion(objects, nil)
-     print("Decoding succesful")
-     } catch {
-     print("decoding error:", error)
-     //completion(nil, error)
-     }
-     
-     }.resume()
-     
-     }*/
-    
-    /*func fecthData() async   {
-        guard let url = URL(string:  "https://api.coincap.io/v2/assets") else { return }
-     
-        var request = URLRequest(url: url)
+    func fetchhData<T: Decodable>() async throws -> T {
         
-        request.setValue("ea873a39-9d7b-49fc-bb55-7d263f8d7e5d", forHTTPHeaderField: "Authorization")
-        let (data, response) = try! await URLSession.shared.data(for: request)
-
+        guard let url = URL(string: "https://api.coincap.io/v2/assets") else { throw APIError.invalidURL }
         
         do {
-            let cryptoModel = try! JSONDecoder().decode(CryptoResponse.self, from: data)
-            return cryptoModel
-            print("Data Crypto: \(cryptoModel)")
+            var request = URLRequest(url: url)
+            
+            request.setValue("ea873a39-9d7b-49fc-bb55-7d263f8d7e5d", forHTTPHeaderField: "Authorization")
+            let (data, response) = try await URLSession.shared.data(from: url)
+           
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                throw APIError.invalidResponseStatus
+            }
+            do {
+                let decodedData = try JSONDecoder().decode(T.self, from: data)
+                return decodedData
+                print("data:: ", String(decoding: data, as: UTF8.self))
+            } catch {
+                throw APIError.decodingError(error.localizedDescription)
+            }
         } catch {
-            print("Decoding error")
+            throw APIError.dataTaskError(error.localizedDescription)
         }
         
-    }*/
+    }
+    
+}
+
+enum APIError: Error, LocalizedError {
+    case invalidURL
+    case invalidResponseStatus
+    case dataTaskError(String )
+    case corruptData
+    case decodingError(String)
+    
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL:
+            return NSLocalizedString("The endpoint URL is ivalid", comment: "")
+        case .invalidResponseStatus:
+            return NSLocalizedString("The API failed to issue a valid response", comment: "")
+        case .dataTaskError(let string):
+            return string
+        case .corruptData:
+            return NSLocalizedString("The data provided appears to be corrupt", comment: "")
+        case .decodingError(let string):
+            return string
+        }
+    }
 }

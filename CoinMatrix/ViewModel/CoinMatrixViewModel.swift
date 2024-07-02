@@ -7,11 +7,15 @@
 
 import SwiftUI
 import CoreData
+
 @MainActor
 class CoinMatrixViewModel: ObservableObject {
     
-    @Published var cryptoData = [CryptoData]()
     private let dataController = DataController.shared
+    @Published var cryptoData: [CryptoData] = []
+    @Published var isLoading = false
+    @Published var showAlert = false
+    @Published var errorMessage: String?
     
     
     init()  {
@@ -25,14 +29,14 @@ class CoinMatrixViewModel: ObservableObject {
         let lastFetchDate = UserDefaults.standard.object(forKey: lastFetchKey) as? Date ?? .distantPast
         let currentDate = Date()
         let hourThreshold: TimeInterval = 1 * 60 * 60
-    
+        
         if currentDate.timeIntervalSince(lastFetchDate) > hourThreshold  {
-            await fecthData()
+            
+            await loadData()
             print("Fetch data from API")
             UserDefaults.standard.set(currentDate, forKey: lastFetchKey)
             
         } else {
-            
             print("Fetch data from Core Data")
             
             let cryptos = dataController.fecthCryptos()
@@ -42,7 +46,29 @@ class CoinMatrixViewModel: ObservableObject {
         }
     }
     
+    func loadData() async {
+        
+        isLoading.toggle()
+        defer {
+            isLoading.toggle()
+        }
+        do {
+            let response: CryptoResponse = try await APIService.shared.fetchhData()
+            
+            if let data = response.data {
+                self.cryptoData = data
+                dataController.deleteAllCryptos()
+                for cryptoData in cryptoData {
+                    dataController.addCrypto(from: cryptoData)
+                }
+            }
+        } catch {
+            showAlert = true
+            errorMessage = error.localizedDescription + "\n Please contact the developer and provide this error"
+        }
+    }
     
+    // MARK: - Se paso la funcion a clase APIService para hacerla funcion generica
     func fecthData() async   {
         guard let url = URL(string:  "https://api.coincap.io/v2/assets") else { return }
         

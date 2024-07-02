@@ -14,8 +14,8 @@
             filePath = "CoinMatrix/ViewModel/CoinMatrixViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "fecthData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,33 +23,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4E3AC109-6904-4509-AD2C-3910D010BB59"
+            uuid = "80C1DBF2-FA95-4400-95B3-4C180E7F70B8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CoinMatrix/ViewModel/CoinMatrixViewModel.swift"
+            filePath = "CoinMatrix/APIService/APIService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "fetchCryptos()"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "fetchhData()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "496E8DF9-65CB-4647-B666-3D620FE2C29B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CoinMatrix/ViewModel/CoinMatrixViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "fetchCryptos()"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "80C1DBF2-FA95-4400-95B3-4C180E7F70B8 - e0875b5bd9f0c19d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for CoinMatrix.APIService.fetchhData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(dataDecodingStrategy: Foundation.JSONDecoder.DataDecodingStrategy, keyDecodingStrategy: Foundation.JSONDecoder.KeyDecodingStrategy) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "CoinMatrix.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bossxcar/Downloads/Developer%20%EF%A3%BF/CoinMatrix/CoinMatrix/APIService/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30">
+               </Location>
+               <Location
+                  uuid = "80C1DBF2-FA95-4400-95B3-4C180E7F70B8 - 102253477c23d075"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for CoinMatrix.APIService.fetchhData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;() async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "CoinMatrix.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bossxcar/Downloads/Developer%20%EF%A3%BF/CoinMatrix/CoinMatrix/APIService/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

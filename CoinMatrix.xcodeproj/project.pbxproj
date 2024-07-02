@@ -33,7 +33,7 @@
 				ChartCryptoView.swift,
 				ContentView.swift,
 				CryptoRowView.swift,
-				CurrentValance.swift,
+				CurrentBalance.swift,
 				ProfileHeaderView.swift,
 			);
 			target = 7C70458D2C2F9533008C5E28 /* CoinMatrix */;

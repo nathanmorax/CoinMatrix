@@ -15,7 +15,7 @@ struct ContentView: View {
         TabView() {
             VStack(spacing: 8) {
                 ProfileHeaderView()
-                CurrentValance()
+                CurrentBalance()
                 ScrollView {
                     ChartCryptoView()
                     VStack(alignment: .leading){

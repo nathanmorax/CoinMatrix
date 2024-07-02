@@ -1,5 +1,5 @@
 //
-//  CurrentValance.swift
+//  CurrentBalance.swift
 //  CoinMatrix
 //
 //  Created by Xcaret Mora on 29/06/24.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct CurrentValance: View {
+struct CurrentBalance: View {
     var body: some View {
         
         VStack(spacing: 10) {
             HStack {
-                Text("Current Valance")
+                Text("Current Balance")
                     .foregroundStyle(.white)
                     .font(.headline)
                 Spacer()
@@ -43,5 +43,5 @@ struct CurrentValance: View {
 }
 
 #Preview {
-    CurrentValance()
+    CurrentBalance()
 }
